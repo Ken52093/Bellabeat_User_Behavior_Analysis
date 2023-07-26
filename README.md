@@ -16,16 +16,16 @@ The data used in this analysis was obtained from multiple CSV files provided by 
 
 The analysis includes the following key insights:
 
-1. **Activity Level Patterns:** A line graph showing the average steps per day over time reveals fluctuations in user activity levels.
+1. **Activity Level Patterns:** Histograms demonstrate that most users prefer spending time on lightly active and sedentary exercises.
 ![Activity Level Patterns](./images/1.png)
 
-2. **Manual Logging Behavior:** A scatter plot shows a possible correlation between sleep duration and activity levels.
+2. **Manual Logging Behavior:** The analysis also showed that users are actively engaged in logging their activities. This level of engagement is a positive sign, indicating that users are finding value in tracking their fitness activities using our platform.
 ![Activity Level Patterns](./images/2.png)
 
-3. **Weight Loss Over Time:** Histograms demonstrate that most users prefer spending time on lightly active and sedentary exercises.
+3. **Weight Loss Over Time:** An encouraging trend observed is that the average weight of the users has decreased over time. This indicates the potential effectiveness of the app/device in assisting users to lose weight, which is a common health goal. This trend can be highlighted in the marketing efforts to attract new users.
 ![Activity Level Patterns](./images/3.png)
 
-4. **Average Sleep Duration Over Time:** A line graph suggests that sleep duration initially decreased but then increased towards the end of the period.
+4. **Average Sleep Duration Over Time:** The analysis reveals fluctuations in sleep duration over the study period, with no clear trend observed. This could be attributed to external factors affecting sleep patterns or users adjusting to the sleep tracking feature of our app or device. Investing in understanding these variations could lead to better insights and allow us to provide enhanced tips and features that help users improve sleep consistency.
 ![Activity Level Patterns](./images/4.png)
 
 ## Conclusion
