@@ -32,6 +32,12 @@ The analysis includes the following key insights:
 
 The analysis highlights several important trends and insights that can guide Bellabeat's marketing strategy. Users seem to prefer lightly active and sedentary exercises, indicating an opportunity to focus on providing features that cater to these preferences. Additionally, the data suggests that users' sleep duration and weight can be positively impacted by using the app or device.
 
+In terms of attracting new users and retaining existing ones, our data suggests the following strategies:
+
+1. Create beginner-friendly content and features.
+2. Enhance manual input features for better user engagement.
+3. Highlight the potential benefits to sleep patterns and weight loss in marketing materials.
+
 ## Future Work
 
 For future improvements, Bellabeat could consider conducting more in-depth analyses to understand the factors influencing sleep duration fluctuations and user engagement with the app. Furthermore, the company could explore personalized features based on user preferences and health goals.
