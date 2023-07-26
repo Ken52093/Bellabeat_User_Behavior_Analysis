@@ -1,0 +1,120 @@
+---
+title: "Bellabeat User Behavior Analysis"
+author: "Ken Tseng"
+date: "2023-07-26"
+output: html_document
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+```
+
+
+## Introduction
+Here we analyze user behavior data from our fitness app. The goal is to understand trends and habits among our users, and use these insights to attract and retain more users.
+
+## Data Overview
+```{r}
+# Read the daily activity data
+dailyactivity <- read.csv("/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/csv_files/dailyActivity_merged.csv")
+
+# Read the daily calories data
+dailyclalories <- read.csv("//Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/csv_files/dailyCalories_merged.csv")
+
+# Read the daily steps data
+dailysteps <- read.csv("/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/csv_files/dailySteps_merged.csv")
+
+# Read the heart_rate data
+heartrate <- read.csv("/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/csv_files/heartrate_seconds_merged.csv")
+
+# Read the sleep day data
+sleepday <- read.csv("/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/csv_files/update_sleepDay_merged.csv")
+
+# Read the weight log info data
+weightloginfo <- read.csv("/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/csv_files/update_weightLogInfo_merged.csv")
+```
+
+## Analysis
+Distribution of Activity Intensity
+```{r}
+#Activity Intensity Distribution
+dailyactivity %>%
+  gather(key = "ActivityIntensity", value = "Minutes", VeryActiveMinutes, FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes) %>%
+  ggplot(aes(x = Minutes)) +
+  geom_histogram(bins = 30) +
+  facet_wrap(~ActivityIntensity, scales = "free_x") +
+  labs(title = "Distribution of Activity Intensity", 
+       x = "Minutes", 
+       y = "Frequency") +
+  theme_minimal()
+```
+
+Count of Manual Reports
+```{r}
+# Create the count plot
+ggplot(weightloginfo, aes(x = IsManualReport, fill = as.factor(IsManualReport))) +
+  geom_bar(color = "black") +
+  scale_fill_manual(values = c("blue", "red"), name = "Is Manual Report",
+                    breaks = c("TRUE", "FALSE"), labels = c("Yes", "No")) +
+  theme_minimal() +
+  labs(title = "Count of Manual Reports", x = "IsManualReport", y = "Count")  
+```
+
+Average Weight Over Time
+```{r}
+# Weight Loss Over Time
+avg_weight_over_time <- weightloginfo %>% 
+  group_by(Date) %>% 
+  summarise(AverageWeight = mean(WeightKg, na.rm = TRUE))
+
+ggplot(avg_weight_over_time, aes(x = Date, y = AverageWeight)) + 
+  geom_smooth(aes(group = 1)) +  # Added group = 1 inside aes() for geom_smooth
+  labs(title = "Average Weight Over Time", 
+       x = "Date", 
+       y = "Average Weight (KG)") +
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+Sleep Duration Over Time
+```{r}
+# Calculate average sleep duration over time
+avg_sleep_over_time <- sleepday %>% 
+  group_by(Date) %>% 
+  summarise(AverageSleep = mean(TotalMinutesAsleep, na.rm = TRUE))
+
+# Plot the data
+ggplot(avg_sleep_over_time, aes(x = Date, y = AverageSleep)) + 
+  geom_smooth(aes(group = 1)) +  
+  labs(title = "Average Sleep Duration Over Time", 
+       x = "Date", 
+       y = "Average Sleep (Minutes)") +
+  theme_minimal() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+## Conclusion
+From my analysis, we can conclude that our users are primarily beginners or casual fitness enthusiasts who prefer light to moderate exercise. They actively use the app to monitor their progress, and they appear to benefit in terms of improved sleep duration and weight loss.
+
+I have spot several trends from the charts:
+
+*Activity Level Patterns*: The majority of our users tend to prefer light and sedentary activities over heavily active ones. This might reflect the lifestyle or preference of our current user base. Recognizing this pattern, the company could develop features and programs that cater more towards light exercises and activities that can be performed in a sedentary position, which could help in attracting more users who prefer or are limited to these kinds of activities.
+
+*Manual Logging Behavior*: The analysis also showed that users are actively engaged in logging their activities. This level of engagement is a positive sign, indicating that users are finding value in tracking their fitness activities using our platform.
+
+*Weight Loss Over Time*: An encouraging trend observed is that the average weight of our users has decreased over time. This indicates the potential effectiveness of our app/device in assisting users to lose weight, which is a common health goal. This trend can be highlighted in our marketing efforts to attract new users.
+
+*Sleep Duration Over Time*: The sleep duration exhibits fluctuations over time, with both periods of decrease and increase. This suggests potential external factors affecting sleep patterns or user adjustments to our app/device.
+
+#### In terms of attracting new users and retaining existing ones, our data suggests the following strategies:
+
+1. Create beginner-friendly content and features.
+2. Enhance manual input features for better user engagement.
+3. Highlight the potential benefits to weight loss in marketing materials.
+4. By investing in understanding and enhancing our sleep features, we can attract more users seeking effective solutions for better sleep. This will drive growth in our subscriber base and establish Bellabeat as a leading brand promoting overall well-being.
+
+
