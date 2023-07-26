@@ -16,16 +16,16 @@ The data used in this analysis was obtained from multiple CSV files provided by 
 The analysis includes the following key insights:
 
 1. **Activity Level Patterns:** A line graph showing the average steps per day over time reveals fluctuations in user activity levels.
-![Activity Level Patterns](/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/images/1.png)
+![Activity Level Patterns](./images/1.png)
 
 2. **Manual Logging Behavior:** A scatter plot shows a possible correlation between sleep duration and activity levels.
-![Activity Level Patterns](/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/images/2.png)
+![Activity Level Patterns](./images/2.png)
 
 3. **Weight Loss Over Time:** Histograms demonstrate that most users prefer spending time on lightly active and sedentary exercises.
-![Activity Level Patterns](/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/images/3.png)
+![Activity Level Patterns](./images/3.png)
 
 4. **Average Sleep Duration Over Time:** A line graph suggests that sleep duration initially decreased but then increased towards the end of the period.
-![Activity Level Patterns](/Users/kentseng/Desktop/Google Certificate/Bellabeat_ Project_Fitabase Data /Bellabeat_User_Behavior_Analysis/images/4.png)
+![Activity Level Patterns](./images/4.png)
 
 ## Conclusion
 
