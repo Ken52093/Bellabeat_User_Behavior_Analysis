@@ -1,5 +1,3 @@
-# [Click here to Bellabeat Smart Device Data Analysis](https://ken52093.github.io/Bellabeat_User_Behavior_Analysis/)
-
 
 ## Description
 
